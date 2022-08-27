@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlanificacionComponent } from './planificacion/planificacion.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    PlanificacionComponent
+    PlanificacionComponent,
+  
   ],
   imports: [
     BrowserModule,
