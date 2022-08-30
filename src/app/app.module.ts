@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlanificacionComponent } from './planificacion/planificacion.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PlanificacionComponent } from './planificacion/planificacion.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
