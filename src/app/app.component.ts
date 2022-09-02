@@ -8,11 +8,11 @@ import { PlanificacionService } from './service/planificacion.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  { 
-  constructor(
-    private router:Router,
-     
-    ) { 
+export class AppComponent  implements OnInit {
+  ngOnInit(): void {
+   
+  } 
+  
 
-  }
+  
 }
