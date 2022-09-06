@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
   
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule, 

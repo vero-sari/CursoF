@@ -9,8 +9,21 @@ import { PlanificacionService } from '../service/planificacion.service';
   styleUrls: ['./planificacion.component.css']
 })
 export class PlanificacionComponent implements OnInit {
+planificacion:Planificacion=new Planificacion();
+plan:Planificacion[]=[];
+
+constructor(private planificacionService:PlanificacionService,
+  private router:Router,
+  private activateRoute:ActivatedRoute){}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.create
+
+  }
+  create():void{
+    console.log(this.planificacion);
+    this.planificacionService.createCurso(this.planificacion).subscribe(
+      res=>this.router.navigate(['/inicio'])
+    );
   }
 
   

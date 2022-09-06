@@ -20,39 +20,22 @@ export class PlanificacionService {
   constructor(private http: HttpClient, private router: Router) { }
 
 get(id:any):Observable<Planificacion>{
-  return this.http.get<Planificacion>(this._url);
+  return this.http.get<Planificacion>(this._url+'/'+id);
 }
   getCurso(): Observable<Planificacion[]> {
-    let header = new HttpHeaders()
-      .set('Type-content', 'aplication/json')
-    return this.http.get<Planificacion[]>(this.urlGet, {
-      headers: header
-    });
+    return this.http.get<Planificacion[]>(this.urlGet);
   }
-  createCurso(doc:Planificacion): Observable<Planificacion> {
-    return this.http.post<Planificacion>(`${this.urlCreate}`, doc, { headers: this.httpHeaders }).pipe(
-      catchError(e => {
-        Swal.fire('Error al guardar', 'NO se puede guardar al curso', 'error')
-        return throwError(e);
-      })
+  createCurso(plan:Planificacion): Observable<Planificacion> {
+    return this.http.post<Planificacion>(this.urlCreate, plan
     );
   }
 
-  deleteCurso(empid: String): Observable<Planificacion> {
-    return this.http.delete<Planificacion>(`${this.urlDelete}/${empid}`, { headers: this.httpHeaders }).pipe(
-      catchError(e => {
-        Swal.fire('Error al eliminar', 'No se puede eliminar', 'error')
-        return throwError(e);
-      })
-    );
+ deleteCurso(id:any):Observable<Planificacion>{
+    return this.http.delete<Planificacion>(this.urlDelete+'/'+id);
   }
 
-  updateCurso( id: any): Observable<Planificacion> {
-    return this.http.put<Planificacion>(`${this.urlUpdate}/${id}`, { headers: this.httpHeaders }).pipe(
-      catchError(e => {
-        Swal.fire('Error al actualizar', 'NO se puede actualizar el curso', 'error')
-        return throwError(e);
-      })
+  updateCurso(plan:Planificacion): Observable<Planificacion> {
+    return this.http.put<Planificacion>(this.urlUpdate, plan 
     );
   }
 }

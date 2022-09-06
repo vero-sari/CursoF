@@ -34,19 +34,20 @@
     <br>
     <div class="form-group col-md-3">
       <label for="estado">Estado:</label>
+      <br>
       <select namr="Estados" id="estado">
       <option value="activo">activo</option>
-      <option value="completado">compleado</option>
+      <option value="completado">completado</option>
       <option value="finalizado">finalizado</option>
     </select>
-      <input type="submit" value="Enviar">
+    
     </div>
     
     <br>
   </div>
   <br>
   
-    <button mat-raised-button color="primary" class="btn" >GUARDAR CURSO</button>
+    <button mat-raised-button color="primary" class="btn" (click)='create()'>GUARDAR CURSO</button>
     
     <button mat-raised-button color="primary" class="btn" routerLink="/lista-cliente">LISTA</button>
     <br>
