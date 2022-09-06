@@ -9,24 +9,10 @@ import { PlanificacionService } from '../service/planificacion.service';
   styleUrls: ['./planificacion.component.css']
 })
 export class PlanificacionComponent implements OnInit {
-
-  curso:Planificacion= new Planificacion();
-  plan:Planificacion[]=[];
-   title = 'angular-cursosf';
-   constructor(
-    
-  private router:Router,
-  private planificacionService:PlanificacionService,
-  private activateRoute:ActivatedRoute
-   ) { }
   ngOnInit(): void {
-    this.create
+    throw new Error('Method not implemented.');
   }
-  create():void{
-    console.log(this.curso);
-    this.planificacionService.createCurso(this.curso).subscribe(
-      res=>this.router.navigate(['/CrearCurso'])
-    );
-  }
+
+  
 
 }
