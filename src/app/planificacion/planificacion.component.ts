@@ -10,13 +10,13 @@ import { PlanificacionService } from '../service/planificacion.service';
 })
 export class PlanificacionComponent implements OnInit {
 planificacion:Planificacion=new Planificacion();
-plan:Planificacion[]=[];
+
 
 constructor(private planificacionService:PlanificacionService,
   private router:Router,
   private activateRoute:ActivatedRoute){}
   ngOnInit(): void {
-    this.create
+    this.create();
 
   }
   create():void{
@@ -25,7 +25,19 @@ constructor(private planificacionService:PlanificacionService,
       res=>this.router.navigate(['/inicio'])
     );
   }
+  crearCarrera(): void {
+   
+    this.planificacionService.createCurso(this.planificacion).subscribe(
+     )
+        
+      }
+    
+
+
+  }
+
+ 
 
   
 
-}
+

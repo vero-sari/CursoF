@@ -10,7 +10,7 @@ import { PlanificacionService } from '../service/planificacion.service';
 })
 export class ListaComponent implements OnInit {
   planificacion:Planificacion=new Planificacion();
-  plan:Planificacion[]=[];
+  planes:Planificacion[]=[];
   constructor(
     private planificacionService:PlanificacionService,
   private router:Router,
@@ -18,10 +18,14 @@ export class ListaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.planificacionService.getCurso().subscribe(
-      e=>this.plan=e
-    );
+   this.getCursos();
       
   }
-
+  getCursos(){
+    this.planificacionService.getCurso().subscribe((resp: any)=>{
+      console.log("CURSOS")
+      console.log(resp.data)
+      this.planes = resp.data
+    })
+  }
 }
