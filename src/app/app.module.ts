@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PlanificacionComponent } from './planificacion/planificacion.component';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
-import { ContactoComponent } from './contacto/contacto.component';
+import { ListaComponent } from './lista/lista.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,8 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     PlanificacionComponent,
     InicioComponent,
-    ContactoComponent,
-  
+   ListaComponent
   ],
   imports: [
     HttpClientModule,

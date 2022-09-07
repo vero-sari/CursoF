@@ -1,0 +1,39 @@
+<br>
+<br>
+<mat-card-title-group  style="background-color:#1d3557; color:white; padding: 20px; border-radius: 5px">
+ LISTA CURSOS
+</mat-card-title-group>
+<br>
+<br>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th>Nombre del curso</th>
+            <th>Docente</th>
+            <th>Fecha de inicio</th>
+            <th>fecha de fin</th>
+            <th>Horario</th>
+            <th>Estado</th>
+             <th>Documentos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let planificaciones of plan">
+            <td>{{planificaciones.nombre_curso}}</td>
+            <td>{{planificaciones.docente}}</td>
+            <td>{{planificaciones.fecha_inicio}}</td>
+            <td>{{planificaciones.fecha_fin}}</td>
+            <td>{{planificaciones.horario}}</td>
+            <td>{{planificaciones.estado}}</td>
+            <td>{{planificaciones.documento}}</td>
+            <td>
+                <a mat-icon-button class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delet" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
