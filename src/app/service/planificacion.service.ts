@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { catchError, Observable, throwError } from "rxjs";
-
+import { environment } from "src/environments/environment";
+import swal from 'sweetalert2';
 import Swal from 'sweetalert2';
 import { Planificacion } from "../modelos/Planificacion";
 
@@ -10,8 +11,8 @@ import { Planificacion } from "../modelos/Planificacion";
   providedIn: 'root'
 })
 export class PlanificacionService {
-  _url = "localhost:8080"
-  private urlCreate: string ="http://localhost:8080CrearCurso";
+  _url = "http://localhost:8080"
+  private urlCreate: string =this._url +'/CrearCurso';
   private urlDelete: string = this._url + '/EliminarCurso/{id}';
   private urlUpdate: string = this._url + '/EditarCurso/{id}';
   private urlGet :string="http://localhost:8080/ListarCurso";
@@ -26,8 +27,18 @@ get(id:any):Observable<Planificacion>{
     return this.http.get<Planificacion[]>(this.urlGet);
   }
   createCurso(plan:Planificacion): Observable<Planificacion> {
-    return this.http.post<Planificacion>(this.urlCreate, plan
-    );
+    return this.http
+      .post<Planificacion>(this.urlCreate, plan)
+      .pipe(
+        catchError((e) => {
+          swal.fire(
+            'Error al guardar',
+            'NO se puede guardar el curso',
+            'error'
+          );
+          return throwError(e);
+        })
+      );
   }
 
  deleteCurso(id:any):Observable<Planificacion>{

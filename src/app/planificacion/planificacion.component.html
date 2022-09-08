@@ -1,29 +1,36 @@
-<div class="container-fluid"></div>
+<mat-card>
+  <mat-card-title>
+    CREAR CURSO
+  </mat-card-title>
+
+<div class="container-fluid">
+<form [formGroup]="formCurso">
 <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="nombre">Nombre del curso:</label>
-      <input  type="text" class="form-control" id="nombre"
-              formControlName="nombre" placeholder="Nombre">
+      <label for="nombre_curso">Nombre del curso:</label>
+      <input  type="text" class="form-control" id="nombre_curso"
+              formControlName="nombre_curso" placeholder="nombre">
     </div>
     <br>
     <div class="form-group col-md-3">
       <label for="docente">Docente :</label>
-      <input  type="text" class="form-control" id="Docente"
-              formControlName="Docente" placeholder="Docente">
+      <input  type="text" class="form-control" id="docente"
+              formControlName="docente" placeholder="docente">
     </div>
     <br>
     
     <div class="form-group col-md-3">
-      <label for="Finicio">Fecha inicio:</label>
-      <input type="date" class="form-control" id="Finicio"
-             formControlName="Finicio" placeholder="Finicio">
+      <label for="fecha_inicio">Fecha inicio:</label>
+      <input type="date" class="form-control" id="fecha_inicio"
+             formControlName="fecha_inicio" placeholder="fecha inicio">
     </div>
     <br>
 
     <div class="form-group col-md-3">
-      <label for="Ffin">Fecha fin:</label>
-      <input type="date" class="form-control" id="Ffin"
-             formControlName="Ffin" placeholder="Ffin">
+      <label for="fecha_fin">Fecha fin:</label>
+      <input type="date" class="form-control" id="fecha_fin"
+             formControlName="fecha_fin" placeholder="fecha 
+             fin">
     </div>
     <br>
     <div class="form-group col-md-3">
@@ -46,7 +53,7 @@
     <br>
   </div>
   <br>
-  
+  <mat-card-actions>
     <button mat-raised-button color="primary" class="btn" (click)='create()'>GUARDAR CURSO</button>
     <br>
     <br>
@@ -56,5 +63,9 @@
     <br>
    
   </ng-template>
+  </mat-card-actions>
 <br>
+</form>
+</div>
 
+</mat-card>

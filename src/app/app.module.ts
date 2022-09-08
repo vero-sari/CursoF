@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ListaComponent } from './lista/lista.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     CommonModule, 
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule
  
   ],
