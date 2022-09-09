@@ -6,23 +6,25 @@
 <div class="container-fluid">
 <form [formGroup]="formCurso">
 <div class="form-row">
+
+  <br>
     <div class="form-group col-md-3">
       <label for="nombre_curso">Nombre del curso:</label>
       <input  type="text" class="form-control" id="nombre_curso"
-              formControlName="nombre_curso" placeholder="nombre">
+              formControlName="nombre_curso" placeholder="nombre" [(ngModel)]="planificacion.nombre_curso">
     </div>
     <br>
     <div class="form-group col-md-3">
       <label for="docente">Docente :</label>
       <input  type="text" class="form-control" id="docente"
-              formControlName="docente" placeholder="docente">
+              formControlName="docente" placeholder="docente" [(ngModel)]="planificacion.docente">
     </div>
     <br>
     
     <div class="form-group col-md-3">
       <label for="fecha_inicio">Fecha inicio:</label>
       <input type="date" class="form-control" id="fecha_inicio"
-             formControlName="fecha_inicio" placeholder="fecha inicio">
+             formControlName="fecha_inicio" placeholder="fecha inicio" [(ngModel)]="planificacion.fecha_inicio">
     </div>
     <br>
 
@@ -30,23 +32,20 @@
       <label for="fecha_fin">Fecha fin:</label>
       <input type="date" class="form-control" id="fecha_fin"
              formControlName="fecha_fin" placeholder="fecha 
-             fin">
+             fin"  [(ngModel)]="planificacion.fecha_fin">
     </div>
     <br>
     <div class="form-group col-md-3">
       <label for="horario">Horario</label>
       <input type="text" class="form-control" id="horario" formControlName="horario"
-             placeholder="horario" >
+             placeholder="horario" [(ngModel)]="planificacion.horario" >
     </div>
     <br>
     <div class="form-group col-md-3">
       <label for="estado">Estado:</label>
       <br>
-      <select namr="Estados" id="estado">
-      <option value="activo">activo</option>
-      <option value="completado">completado</option>
-      <option value="finalizado">finalizado</option>
-    </select>
+      <input type="text" class="form-control" id="horario" formControlName="horario"
+      placeholder="horario" [(ngModel)]="planificacion.estado" >
     
     </div>
     
@@ -54,12 +53,12 @@
   </div>
   <br>
   <mat-card-actions>
-    <button mat-raised-button color="primary" class="btn" (click)='create()'>GUARDAR CURSO</button>
+    <button mat-raised-button color="primary" class="btn" (click)='create()' *ngIf="!planificacion.id else elseBlock">GUARDAR CURSO</button>
     <br>
     <br>
     <button mat-raised-button color="primary" class="btn" >CARGAR DOCUMENTOS</button>
     <ng-template #elseBlock> 
-    <button mat-raised-button color="primary" class="btn">ACTUALIZAR</button>
+    <button mat-raised-button color="primary" class="btn" (click)='update()'>ACTUALIZAR</button>
     <br>
    
   </ng-template>

@@ -11,11 +11,11 @@ import { Planificacion } from "../modelos/Planificacion";
   providedIn: 'root'
 })
 export class PlanificacionService {
-  _url = "http://localhost:8080"
-  private urlCreate: string =this._url +'/CrearCurso';
-  private urlDelete: string = this._url + '/EliminarCurso/{id}';
-  private urlUpdate: string = this._url + '/EditarCurso/{id}';
-  private urlGet :string="http://localhost:8080/ListarCurso";
+  _url = "http//localhost:8090"
+  private urlCreate: string ="http://localhost:8090/CrearCurso";
+  private urlDelete: string = "http://localhost:8090/EliminarCurso/{id}";
+  private urlUpdate: string = "http://localhost:8090/EditarCurso/{id}";
+  private urlGet :string= 'http://localhost:8090/ListarCurso';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
   constructor(private http: HttpClient, private router: Router) { }

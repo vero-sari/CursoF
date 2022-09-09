@@ -19,6 +19,7 @@ export class ListaComponent implements OnInit {
 
   ngOnInit(): void {
    this.getCursos();
+   
       
   }
   getCursos(){
@@ -28,4 +29,12 @@ export class ListaComponent implements OnInit {
       this.planes = resp.data
     })
   }
+  delete(planificaciones:Planificacion):void{
+    console.log("Eliminar");
+    this.planificacionService.deleteCurso(planificaciones.id).subscribe(
+      res=>this.planificacionService.getCurso().subscribe(
+    response=>this.planes=response
+      )
+    );
+    }
 }

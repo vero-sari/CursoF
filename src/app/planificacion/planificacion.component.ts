@@ -14,6 +14,7 @@ planificacion=new Planificacion();
 formCurso: FormGroup;
 
 constructor(
+  
   private planificacionService:PlanificacionService,
   private router:Router,
   private formBuilder: FormBuilder,
@@ -34,37 +35,30 @@ constructor(
   
   
   create(): void {
-    if (this.formCurso.invalid) {
-      swal.fire(
-        'Error de entrada',
-        'Revise que los campos no esten vacíos',
-        'error'
-      )
-      return;
-    }
-    this.planificacionService.createCurso(this.planificacion).subscribe(
-      Response => {
-        swal.fire(
-          'Curso Guardado',
-          `Curso ${this.planificacion} creada con exito!`,
-          'success'
-        )
-        this.limpiar()
+
+console.log(this.planificacion);
+this.planificacionService.createCurso(this.planificacion).subscribe(
+  res=>this.router.navigate(['/lista'])
+);
+  }
+  update():void{
+    this.planificacionService.updateCurso(this.planificacion).subscribe(
+      res=>this.router.navigate(['/lista'])
+    );
+  }
+  cargar():void{
+  this.activateRoute.params.subscribe(
+    e=>{
+      let id=e['id'];
+      if(id){
+        this.planificacionService.get(id).subscribe(
+          es=>this.planificacion=es
+        );
       }
-    )
-
-
+    }
+  );
   }
-
-  limpiar(): void {
-    this.planificacion.nombre_curso = null;
-    this.planificacion.docente = null;
-    this.planificacion.horario = null;
-    
-  }
-
-
-
+  
   }
 
  

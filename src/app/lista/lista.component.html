@@ -31,8 +31,8 @@
             <td>{{planificaciones.estado}}</td>
             <td>{{planificaciones.documento}}</td>
             <td>
-                <a mat-icon-button class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delet" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <button type="button" name="button" class="btn btn-primary" [routerLink]="['/planificacion',planificaciones.id]">Editar</button>
+                <button class="btn btn-danger" (click)="delete(planificacion)">Eliminar</button>
                 
             </td>
         </tr>
