@@ -4,6 +4,24 @@ import { Planificacion } from '../modelos/Planificacion';
 import { PlanificacionService } from '../service/planificacion.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import swal from "sweetalert2";
+import Docxtemplater from "docxtemplater";
+import PizZip from "pizzip";
+import PizZipUtils from "pizzip/utils/index.js";
+import { saveAs } from "file-saver";
+import { Observable, ReplaySubject } from 'rxjs';
+
+function loadFile(url, callback) {
+  PizZipUtils.getBinaryContent(url, callback);
+}
+
+function getBase64(file: any) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
 @Component({
   selector: 'app-planificacion',
   templateUrl: './planificacion.component.html',
@@ -13,6 +31,8 @@ export class PlanificacionComponent implements OnInit {
 planificacion=new Planificacion();
 formCurso: FormGroup;
 
+public dialogoGuardaryGenerar: boolean=false;
+public base64Output: string=" ";
 constructor(
   
   private planificacionService:PlanificacionService,
@@ -28,6 +48,7 @@ constructor(
       estado: ['', Validators.required]
     });
   }
+ 
   ngOnInit(): void {
  
 
@@ -59,6 +80,22 @@ this.planificacionService.createCurso(this.planificacion).subscribe(
   );
   }
   
+  onFileSelected(event:any) {
+    this.convertFile(event.target.files[0]).subscribe(base64 => {
+      this.base64Output = base64;
+      this.planificacion.documento = base64;
+    });
+  }
+
+  convertFile(file: File): Observable<string> {
+    const result = new ReplaySubject<string>(1);
+    const reader = new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onload = (event) => result.next(btoa(event.target.result.toString()));
+    console.log(result)
+    return result;
+  }
+
   }
 
  

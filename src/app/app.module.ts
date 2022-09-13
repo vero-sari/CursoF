@@ -10,13 +10,18 @@ import { ListaComponent } from './lista/lista.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FilesComponent } from './files/files.component';
+import {AccordionModule} from "primeng/accordion";
+import {FileUploadModule} from "primeng/fileupload";
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     PlanificacionComponent,
     InicioComponent,
-   ListaComponent
+   ListaComponent,
+   FilesComponent
   ],
   imports: [
     HttpClientModule,
@@ -25,6 +30,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule, 
     FormsModule,
     ReactiveFormsModule,
+    AccordionModule,
+    FileUploadModule,
+    MatDialogModule,
+    DialogModule,
     MatCardModule
  
   ],

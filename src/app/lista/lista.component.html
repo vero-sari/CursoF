@@ -29,7 +29,9 @@
             <td>{{planificaciones.fecha_fin}}</td>
             <td>{{planificaciones.horario}}</td>
             <td>{{planificaciones.estado}}</td>
-            <td>{{planificaciones.documento}}</td>
+            <td >
+                <button type="button" name="button" class="btn btn-primary" [routerLink]="['/file']">Ver</button>
+            </td>
             <td>
                 <button type="button" name="button" class="btn btn-primary" [routerLink]="['/planificacion',planificaciones.id]">Editar</button>
                 <button class="btn btn-danger" (click)="delete(planificacion)">Eliminar</button>
