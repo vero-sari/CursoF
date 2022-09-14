@@ -57,18 +57,8 @@
     <button mat-raised-button color="primary" class="btn" (click)='create()' *ngIf="!planificacion.id else elseBlock">GUARDAR CURSO</button>
     <br>
     <br>
-    <button mat-raised-button color="primary" class="btn" >CARGAR DOCUMENTOS</button>
-    <ng-template #elseBlock> 
-    <button mat-raised-button color="primary" class="btn" (click)='update()'>ACTUALIZAR</button>
-    <br>
-   
-  </ng-template>
-  </mat-card-actions>
-<br>
-</form>
-</div>
-<!--Dialogo para mandar solicitud-->
-<p-dialog [(visible)]="dialogoGuardaryGenerar" [style]="{width:'37vw'}" [draggable]="false" [baseZIndex]="10000"
+    <button mat-raised-button color="primary" class="btn" >CARGAR DOCUMENTOS
+      <p-dialog [(visible)]="dialogoGuardaryGenerar" [style]="{width:'37vw'}" [draggable]="false" [baseZIndex]="10000"
           [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">
 
@@ -82,17 +72,39 @@
 
 
           <div>
-            <label for="horaSalida">SELECCIONE DOCUMENTO</label>
-            <input class="form-control" type="file" (change)="onFileSelected($event)" accept=".pdf" />
+            <label for="documento">SELECCIONE DOCUMENTO</label>
+            
           </div>
 
           <br>
 
           <!--botones-->
 
-          
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+           
             <button class="btn btn-primary" type="button" style="background: #28528d; color: white;"
                     (click)="create()">SUBIR
               DOCUMENTO</button>
-          
+          </div>
+        </mat-card>
+
+      </form>
+
+    </mat-card>
+
+  </ng-template>
+
+</p-dialog>
+    </button>
+    <ng-template #elseBlock> 
+    <button mat-raised-button color="primary" class="btn" (click)='update()'>ACTUALIZAR</button>
+    <br>
+   
+  </ng-template>
+  </mat-card-actions>
+<br>
+</form>
+</div>
+
+
 </mat-card>

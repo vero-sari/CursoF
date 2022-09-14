@@ -5,14 +5,14 @@ import { PlanificacionService } from '../service/planificacion.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import swal from "sweetalert2";
 import Docxtemplater from "docxtemplater";
-import PizZip from "pizzip";
-import PizZipUtils from "pizzip/utils/index.js";
+//import PizZip from "pizzip";
+//import PizZipUtils from "pizzip/utils/index.js";
 import { saveAs } from "file-saver";
 import { Observable, ReplaySubject } from 'rxjs';
 
-function loadFile(url, callback) {
+/*function loadFile(url, callback) {
   PizZipUtils.getBinaryContent(url, callback);
-}
+}*/
 
 function getBase64(file: any) {
   return new Promise((resolve, reject) => {
@@ -80,21 +80,21 @@ this.planificacionService.createCurso(this.planificacion).subscribe(
   );
   }
   
-  onFileSelected(event:any) {
+ /* onFileSelected(event:any) {
     this.convertFile(event.target.files[0]).subscribe(base64 => {
       this.base64Output = base64;
       this.planificacion.documento = base64;
     });
-  }
+  }*/
 
-  convertFile(file: File): Observable<string> {
+  /*convertFile(file: File): Observable<string> {
     const result = new ReplaySubject<string>(1);
     const reader = new FileReader();
     reader.readAsBinaryString(file);
     reader.onload = (event) => result.next(btoa(event.target.result.toString()));
     console.log(result)
     return result;
-  }
+  }*/
 
   }
 
